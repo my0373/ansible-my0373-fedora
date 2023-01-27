@@ -1,0 +1,32 @@
+---
+# tasks file for ansible_zsh
+- name: Install the ZSH package
+  dnf:
+    name: zsh
+    state: latest
+  become: yes
+
+- name: Download the OhMyZSH install script
+  ansible.builtin.get_url:
+    url: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+    dest: /tmp/install.sh
+    mode: "0755"
+
+- name: Run the installer
+  ansible.builtin.command:
+    cmd: /tmp/install.sh
+    creates: "{{ lookup('ansible.builtin.env', 'HOME') }}/.oh-my-zsh"
+  ignore_errors: true
+
+- name: Set the ZSH theme
+  ansible.builtin.lineinfile:
+    path: ~/.zshrc
+    regexp: ^(ZSH_THEME=).*
+    line: '\g<1>{{ zsh_theme }}'
+    backrefs: yes
+
+- name: "Update the {{ lookup('ansible.builtin.env', 'USER') }} user to use th ZSH shell"
+  ansible.builtin.user:
+    name: "{{ lookup('ansible.builtin.env', 'USER') }}"
+    shell: /usr/bin/zsh
+  become: true
