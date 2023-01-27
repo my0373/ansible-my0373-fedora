@@ -1,0 +1,8 @@
+---
+# Defaults for the chrome
+LOCAL_RPM_PATH: "/tmp/"
+CHROME_REPO:  "https://dl.google.com/linux/direct/"
+CHROME_DEPS:
+  - fedora-workstation-repositories
+CHROME_PACKAGE_NAME: "google-chrome-stable_current_x86_64.rpm"
+

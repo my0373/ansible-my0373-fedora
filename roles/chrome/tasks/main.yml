@@ -1,0 +1,24 @@
+---
+# tasks file for rhel_chrome
+- name: "Install chrome dependencies "
+  dnf:
+    name: "fedora-workstation-repositories"
+    state: latest
+  become: yes
+
+- name: Create the google chrome repo file
+  ansible.builtin.template:
+    src: chrome.repo.j2
+    dest: /etc/yum.repos.d/google-chrome.repo
+    owner: root
+    group: wheel
+    mode: '0644'
+  become: yes
+
+# tasks file for rhel_chrome
+- name: "Install chrome stable"
+  dnf:
+    name: "google-chrome-stable"
+    state: latest
+  become: yes
+    
