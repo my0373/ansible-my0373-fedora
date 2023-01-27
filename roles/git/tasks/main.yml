@@ -1,0 +1,31 @@
+---
+# tasks file for git
+- name: Install the git package
+  dnf:
+    name: git
+    state: latest
+  become: true
+
+- name: Set the git username config
+  community.general.git_config:
+    name: user.name
+    scope: global
+    value: "{{ GIT_USER }}"
+
+- name: Set the git email config
+  community.general.git_config:
+    name: user.email
+    scope: global
+    value: "{{ GIT_EMAIL }}"
+
+- name: Set the git autosetupremote
+  community.general.git_config:
+    name: push.autoSetupRemote
+    scope: global
+    value: "{{ GIT_AutoSetupRemote }}"
+
+- name: Set the git editor config
+  community.general.git_config:
+    name: core.editor
+    scope: global
+    value: "{{ GIT_EDITOR }}"

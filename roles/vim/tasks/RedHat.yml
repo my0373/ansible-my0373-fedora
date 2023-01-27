@@ -1,0 +1,12 @@
+---
+# tasks file for ansible_vim
+- name: Install the VIM package on Red Hat Enterprise Linux
+  dnf:
+    name: vim-enhanced
+    state: latest
+  become: yes
+
+- name: Configure vim preferences for the local user
+  template:
+    src: vimrc.j2
+    dest: ~/.vimrc

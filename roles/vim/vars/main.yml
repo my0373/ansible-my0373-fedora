@@ -1,0 +1,3 @@
+---
+# defaults file for ansible_vim
+vim_scheme: "blue"

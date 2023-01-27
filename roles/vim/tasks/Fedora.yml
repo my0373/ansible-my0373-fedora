@@ -1,0 +1,12 @@
+---
+# tasks file for ansible_vim
+- name: Install the VIM package on Fedora
+  dnf:
+    name: vim-enhanced
+    state: latest
+  become: yes
+
+- name: Configure vim preferences
+  template:
+    src: vimrc.j2
+    dest: ~/.vimrc

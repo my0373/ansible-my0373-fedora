@@ -1,0 +1,6 @@
+---
+# defaults file for git
+GIT_USER: "Matt York"
+GIT_EMAIL: "my0373@gmail.com"
+GIT_EDITOR: "vim"
+GIT_AutoSetupRemote: "true"
