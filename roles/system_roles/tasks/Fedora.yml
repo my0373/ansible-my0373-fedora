@@ -1,0 +1,6 @@
+---
+- name: "Install the system roles for {{ ansible_distribution }}"
+  dnf:
+    name: "linux-system-roles"
+    state: latest
+  become: yes
