@@ -1,2 +1,6 @@
 ---
 # defaults file for vscode_install
+vscode_theme: "Monokai"
+editor_fontsize: 18
+terminal_fontsize: 12
+window_zoomlevel: 1
