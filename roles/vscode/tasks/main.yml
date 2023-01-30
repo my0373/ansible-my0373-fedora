@@ -26,7 +26,7 @@
 # tasks file for vscode_install
 - name: Install my settings
   ansible.builtin.template:
-    src: fedora.settings.json.j2
+    src: "{{ ansible_distribution }}.settings.json.j2"
     dest: ~/.config/Code/User/settings.json
     owner: myork
     group: myork
