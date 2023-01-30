@@ -1,0 +1,5 @@
+---
+  # defaults file for mattmotd
+  owner: "Matt Y"
+  motd_warning: "Sup Sup Sup"
+
