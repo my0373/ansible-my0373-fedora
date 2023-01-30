@@ -1,2 +1,3 @@
 ---
 # defaults file for vscode_install
+vscode_theme: "Monokai"
