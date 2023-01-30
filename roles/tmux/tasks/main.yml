@@ -1,0 +1,29 @@
+---
+- name: "Install TMUX package "
+  dnf:
+     name: 'tmux'
+     state: latest
+  become: yes
+
+- name: Install TMUX settings
+  ansible.builtin.template:
+    src: "tmux.conf.j2"
+    dest: ~/.tmux.conf
+    owner: myork
+    group: myork
+    mode: '0644'
+
+#####################################################################
+## Commented out, as I don't know if I really want TMUX starting 
+## all the time.
+#####################################################################
+#
+# - name: "Reconfigure the bash profile to automatically start TMUX "
+#   blockinfile:
+#      path: ~/.bashrc
+#      marker: "# Ansible managed block by ansible_tmux"
+#      insertbefore: "^# Get the aliases and functions$"
+#      block: |
+#       if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#         tmux attach -t default || tmux new -s default
+#       fi
