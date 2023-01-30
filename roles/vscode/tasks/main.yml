@@ -1,0 +1,35 @@
+---
+
+# tasks file for vscode_install
+- name: Install the vscode repo
+  ansible.builtin.template:
+    src: yum.repos.d.vscode.repo.j2
+    dest: /etc/yum.repos.d/vscode.repo
+    owner: root
+    group: wheel
+    mode: '0644'
+  become: yes
+
+- name: Install the latest version of VSCode
+  dnf:
+    name: code
+    state: latest
+  become: yes
+
+
+- name: Create a directory if it does not exist
+  ansible.builtin.file:
+    path: ~/.config/Code/User/
+    state: directory
+    mode: '0755'
+
+# tasks file for vscode_install
+- name: Install my settings
+  ansible.builtin.template:
+    src: "{{ ansible_os_family }}.settings.json.j2"
+    dest: ~/.config/Code/User/settings.json
+    owner: myork
+    group: myork
+    mode: '0644'
+
+      
