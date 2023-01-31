@@ -1,0 +1,17 @@
+---
+- name: "Install hashicorp repository "
+  ansible.builtin.template:
+    src: hashicorp.repo.j2
+    dest: /etc/yum.repos.d/hashicorp.repo
+    owner: root
+    group: wheel
+    mode: '0644'
+  become: yes
+
+# tasks file for terraform
+- name: "Install terraform package"
+  dnf:
+    name: "terraform"
+    state: latest
+  become: yes
+    
