@@ -1,0 +1,12 @@
+---
+- name: Configure the rpmfusion repos
+  ansible.builtin.template:
+    src: "{{ item }}.j2"
+    dest: "/etc/yum.repos.d/{{ item }}"
+    owner: root
+    group: wheel
+    mode: '0644'
+  loop:
+    - rpmfusion-nonfree-nvidia-driver.repo
+    - rpmfusion-nonfree-steam.repo
+  become: yes
