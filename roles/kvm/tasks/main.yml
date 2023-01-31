@@ -1,5 +1,5 @@
 ---
-- name: "Install KVM package dependencies"
+- name: Install KVM package dependencies
   dnf:
     name: "{{ item }}"
     state: latest
