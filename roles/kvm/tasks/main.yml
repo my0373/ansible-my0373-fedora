@@ -1,0 +1,21 @@
+---
+- name: Install KVM package dependencies
+  dnf:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - bridge-utils
+    - libvirt
+    - virt-install
+    - virt-manager
+    - qemu-kvm
+    - virt-top
+    - libguestfs-tools
+  become: yes
+
+- name: Enable and start the libvirtd service
+  service:
+    name: libvirtd
+    enabled: yes
+    state: started
+  become: yes

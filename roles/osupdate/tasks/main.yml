@@ -1,0 +1,7 @@
+---
+- name: Patch all packages on the local operating system.
+  dnf:
+    name: "*"
+    state: latest
+  become: yes
+# tasks file for osupdate
