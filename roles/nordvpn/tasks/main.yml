@@ -2,8 +2,8 @@
 # tasks file for rhel_chrome
 - name: "Install NordVPN yum repository "
   ansible.builtin.template:
-    src: chrome.repo.j2
-    dest: /etc/yum.repos.d/google-chrome.repo
+    src: repo.nordvpn.com_yum_nordvpn_centos_x86_64.repo.j2
+    dest: /etc/yum.repos.d/repo.nordvpn.com_yum_nordvpn_centos_x86_64.repo
     owner: root
     group: wheel
     mode: '0644'
