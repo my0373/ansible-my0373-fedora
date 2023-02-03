@@ -1,0 +1,8 @@
+---
+  - name: "Install Overpass fonts package "
+    dnf:
+      name: 
+        - 'overpass-mono-fonts'
+        - 'overpass-fonts'
+      state: latest
+    become: yes
