@@ -1,0 +1,13 @@
+---
+# tasks file for jqyq
+#
+- name: Install jq
+  dnf:
+    name: jq
+  become: yes
+
+- name: Install yq
+  community.general.snap:
+    name: yq
+  become: yes
+
