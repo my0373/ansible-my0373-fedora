@@ -1,0 +1,26 @@
+---
+# tasks file for rhel_chrome
+- name: "Install NordVPN yum repository "
+  ansible.builtin.template:
+    src: chrome.repo.j2
+    dest: /etc/yum.repos.d/google-chrome.repo
+    owner: root
+    group: wheel
+    mode: '0644'
+  become: yes
+
+- name: Install the NordVPN binary
+  dnf:
+    name: nordvpn
+    state: latest
+  become: yes
+
+- name: Print some simple usage instructions
+  ansible.builtin.debug:
+    msg: "{{ item }}"
+  loop:
+    - "To use NordVPN please use the following commands"
+    - "Log out of the system"
+    - "Log back in to a terminal"
+    - "$ nordvpn login"
+    - "$ nordvpn connect"
