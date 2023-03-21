@@ -2,6 +2,10 @@
 
 This is a little collection of roles I use to configure Fedora.
 
+# Using the collection
+Example playbooks for each of the following roles is available [here](https://gitlab.com/my0373-ansible/playbooks/ansible-fedora-laptop).
+
+# Included roles
 The current roles included are...
 
 ## chrome
