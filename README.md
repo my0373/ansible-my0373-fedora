@@ -1,12 +1,51 @@
 # Ansible Collection - my0373.laptop
 
-This is a little collection of roles I use to configure Fedora
-Some key things that need to be added
+This is a little collection of roles I use to configure Fedora.
 
-* selinux enforcing
-* firewall enforcing
-* chrony installed and configured to use ntp servers
-* install a few of my favourite tools (tree, vim-enhanced, htop, netcat)
+The current roles included are...
+
+## chrome
+Install and configure Google Chrome
+## fonts
+Install and configure a set of standard fonts
+## git
+Install and configure git for a local user
+
+## kvm
+Install and configure the linux KVM hypervisor.
+
+## motd
+Install a simple message of the day
+
+## osupdate
+A simple role to update the OS
+
+## packer
+Install and configure Hashicorp Packer.
+
+## rpmfusion
+Add the rpmfusion repositories
+
+## system_roles
+Install the linux system roles collection.
+
+## terraform
+Configure the Hashicorp Terraform repositories.
+
+## tmux
+Install and configure the TMUX terminal manager.
+
+## vim
+Install and configure vim with a configuration for Ansible and YAML files.
+
+## vscode
+Install the VSCode application, repositories and configuration.
+
+## zsh
+Install and configure the ZSH with omzsh
+
+# Installing the collection
+
 
 This collection can be installed directly 
 ### Install the collection from the from the command line.
@@ -34,3 +73,12 @@ $ ansible-galaxy install -r requirements.txt
 ```
 
 This will install the latest version of the collection from the ```main``` branch.
+
+
+# Work in progress
+Some key things that need to be added
+
+* selinux enforcing
+* firewall enforcing
+* chrony installed and configured to use ntp servers
+* install a few of my favourite tools (tree, vim-enhanced, htop, netcat)
