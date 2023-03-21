@@ -16,7 +16,7 @@ $ ansible-galaxy collection install  git+https://gitlab.com/my0373/ansible-my037
 ```
 
 or 
-### Install the collection from a requirements.yml file
+### Install the collection from a ```requirements.yml``` file
 
 Firstly, create a file called ``` requirements.yml ``` with the following content.
 
