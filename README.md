@@ -30,7 +30,7 @@ collections:
 You can then install the collection using the command
 
 ```
-ansible-galaxy install -r requirements.txt
+$ ansible-galaxy install -r requirements.txt
 ```
 
 This will install the latest version of the collection from the ```main``` branch.
