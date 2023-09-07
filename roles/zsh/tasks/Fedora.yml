@@ -30,3 +30,11 @@
     name: "{{ lookup('ansible.builtin.env', 'USER') }}"
     shell: /usr/bin/zsh
   become: true
+
+# TODO: Paramaterise this when you get time
+- name "Ensure the zsh PATH is set to pick up my local bin directories"
+  lineinfile:
+    path: ~/.zshrc
+    regexp: '^export PATH='
+    line: 'export PATH=$HOME/bin:/usr/local/bin:~/.local/bin:$PATH'
+
