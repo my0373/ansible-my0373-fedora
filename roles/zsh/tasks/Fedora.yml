@@ -37,5 +37,6 @@
   lineinfile:
     path: '~/.zshrc'
     regexp: '^export PATH='
-    line: 'export PATH=$HOME/bin:/usr/local/bin:~/.local/bin:$PATH'
+    line: "{{ zsh_path }}"
+    # line: 'export PATH=$HOME/bin:/usr/local/bin:~/.local/bin:$PATH'
 
