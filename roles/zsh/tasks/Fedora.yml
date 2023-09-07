@@ -32,9 +32,10 @@
   become: true
 
 # TODO: Paramaterise this when you get time
-- name "Ensure the zsh PATH is set to pick up my local bin directories"
+
+- name: "Insert the bin directories for the local user"
   lineinfile:
-    path: ~/.zshrc
+    path: '~/.zshrc'
     regexp: '^export PATH='
     line: 'export PATH=$HOME/bin:/usr/local/bin:~/.local/bin:$PATH'
 
