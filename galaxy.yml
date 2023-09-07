@@ -44,10 +44,10 @@ tags: []
 dependencies: { "fedora.linux_system_roles": ">=1.21.1" }
 
 # The URL of the originating SCM repository
-repository: https://gitlab.com/my0373/ansible-myork-collection
+repository: https://github.com/my0373/ansible-my0373-fedora
 
 # The URL to any online docs
-documentation: https://gitlab.com/my0373/ansible-myork-collection/blob/main/README.md
+documentation: https://github.com/my0373/ansible-my0373-fedora/blob/main/README.md
 
 # The URL to the homepage of the collection/project
 homepage: https://gitlab.com/my0373/ansible-myork-collection/wiki
