@@ -4,7 +4,21 @@
   dnf:
     name: zsh
     state: latest
-  become: yes
+  become: true 
+
+- name: Install TMUX
+  dnf:
+    name: TMUX
+    state: latest
+  become: true
+
+- name: Install TMUX settings
+  ansible.builtin.template:
+    src: "tmux.conf.j2"
+    dest: ~/.tmux.conf
+    owner: myork
+    group: myork
+    mode: '0644'
 
 - name: Download the OhMyZSH install script
   ansible.builtin.get_url:
@@ -40,3 +54,24 @@
     line: "export PATH={{ zsh_path }}"
     # line: 'export PATH=$HOME/bin:/usr/local/bin:~/.local/bin:$PATH'
 
+- name: Git checkout
+  ansible.builtin.git:
+    repo: 'https://github.com/gpakosz/.tmux.git'
+    dest: /home/myork/omtmux 
+
+- name: Copy the omtmux config into ~/.config/tmux  
+  ansible.builtin.copy:
+    src: /home/myork/omtmux/.tmux.conf.local
+    dest: /home/myork/.config/tmux/tmux.conf.local
+    owner: myork
+    group: myork
+    mode: '0644'
+
+- name: Create a symbolic link
+  ansible.builtin.file:
+    src: /home/myork/.config/tmux/tmux.conf.local
+    dest: /home/myork/.config/tmux/tmux.conf
+    owner: myork
+    group: myork 
+    state: link
+    force: true 
