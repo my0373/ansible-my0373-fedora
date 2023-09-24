@@ -1,7 +1,9 @@
 # Ansible Collection - my0373.laptop
 
-This is a little collection of roles I use to configure Fedora.
+This is a collection of roles I use to help me configure Fedora.
 
+# Versions
+These roles are currently tested for Fedora 38, and 39 beta
 # Using the collection
 Example playbooks for each of the following roles is available [here](https://gitlab.com/my0373-ansible/playbooks/ansible-fedora-laptop).
 
@@ -13,7 +15,22 @@ Install and configure Google Chrome
 ## fonts
 Install and configure a set of standard fonts
 ## git
-Install and configure git for a local user
+A role to install and configure git for a local user on the target system.
+
+parameters
+# Parameters for the git role
+
+
+### The git plaintext username
+    GIT_USER: "Matt York"
+### The git email address to use
+    GIT_EMAIL: "my0373@gmail.com"
+### The default editor 
+    GIT_EDITOR: "vim"
+### Git will autosetup the remote branch.
+    GIT_AutoSetupRemote: "true"
+### Git push default
+    GIT_PUSH_DEFAULT: "simple"
 
 ## kvm
 Install and configure the linux KVM hypervisor.

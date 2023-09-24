@@ -29,3 +29,9 @@
     name: core.editor
     scope: global
     value: "{{ GIT_EDITOR }}"
+
+- name: Set the git editor config
+  community.general.git_config:
+    name: push.default
+    scope: global
+    value: "{{ GIT_PUSH_DEFAULT }}"
