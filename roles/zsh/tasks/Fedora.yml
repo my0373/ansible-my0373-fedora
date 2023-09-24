@@ -17,14 +17,6 @@
     path: ~/.config/tmux 
     state: directory
     mode: '0755'
-    
-- name: Install TMUX settings
-  ansible.builtin.template:
-    src: "tmux.conf.j2"
-    dest: ~/.tmux.conf
-    owner: myork
-    group: myork
-    mode: '0644'
 
 - name: Download the OhMyZSH install script
   ansible.builtin.get_url:
@@ -69,6 +61,23 @@
   ansible.builtin.copy:
     src: /home/myork/omtmux/.tmux.conf.local
     dest: /home/myork/.config/tmux/tmux.conf.local
+    owner: myork
+    group: myork
+    mode: '0644'
+
+
+- name: Install TMUX settings
+  ansible.builtin.template:
+    src: "tmux.conf.j2"
+    dest: ~/.tmux.conf
+    owner: myork
+    group: myork
+    mode: '0644'
+
+- name: Install TMUX local settings
+  ansible.builtin.template:
+    src: "tmux.conf.local.j2"
+    dest: ~/.tmux.conf.local
     owner: myork
     group: myork
     mode: '0644'
