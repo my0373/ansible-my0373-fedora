@@ -12,6 +12,12 @@
     state: latest
   become: true
 
+- name: Create the TMUX .config directory 
+  ansible.builtin.file:
+    path: ~/.config/tmux 
+    state: directory
+    mode: '0755'
+    
 - name: Install TMUX settings
   ansible.builtin.template:
     src: "tmux.conf.j2"
