@@ -38,11 +38,8 @@
     group: myork
     mode: '0644'
 
-- name: Install my extensions
-  ansible.builtin.template:
-    src: "extensions.json.j2"
-    dest: "~/.vscode/extensions/extensions.json"
-    owner: myork
-    group: myork
-    mode: '0644'
+
+- name: Install the extensions
+  ansible.builtin.command: /usr/bin/code --install-extension {{ item }}
+  loop: "{{ lookup('file', 'files/extensions.txt').splitlines() }}"
       
