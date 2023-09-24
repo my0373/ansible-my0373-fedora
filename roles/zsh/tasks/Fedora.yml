@@ -52,6 +52,14 @@
     line: "export PATH={{ zsh_path }}"
     # line: 'export PATH=$HOME/bin:/usr/local/bin:~/.local/bin:$PATH'
 
+- name: Install ZSH config file
+  ansible.builtin.template:
+    src: "zshrc.conf.j2"
+    dest: ~/.zshrc 
+    owner: myork
+    group: myork
+    mode: '0644'
+
 - name: Git checkout
   ansible.builtin.git:
     repo: 'https://github.com/gpakosz/.tmux.git'
