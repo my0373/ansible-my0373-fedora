@@ -23,6 +23,12 @@
     state: directory
     mode: '0755'
 
+- name: Create the extension directory if it does not exist
+  ansible.builtin.file:
+    path: ~/.vscode/extensions/
+    state: directory
+    mode: '0755'
+
 # tasks file for vscode_install
 - name: Install my settings
   ansible.builtin.template:
@@ -32,4 +38,11 @@
     group: myork
     mode: '0644'
 
+- name: Install my extensions
+  ansible.builtin.template:
+    src: "extensions.json.j2"
+    dest: "~/.vscode/extensions/extensions.json"
+    owner: myork
+    group: myork
+    mode: '0644'
       
