@@ -8,7 +8,7 @@
 
 - name: Install TMUX
   dnf:
-    name: TMUX
+    name: "tmux"
     state: latest
   become: true
 
