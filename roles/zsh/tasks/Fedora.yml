@@ -98,3 +98,8 @@
     group: myork 
     state: link
     force: true 
+
+- name: Git checkout
+  ansible.builtin.git:
+    repo: 'https://github.com/pyenv/pyenv.git ~/.pyenv'
+    dest: ~/.pyenv
