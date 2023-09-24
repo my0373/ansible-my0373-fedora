@@ -101,5 +101,5 @@
 
 - name: Git checkout
   ansible.builtin.git:
-    repo: 'https://github.com/pyenv/pyenv.git ~/.pyenv'
+    repo: 'https://github.com/pyenv/pyenv.git'
     dest: ~/.pyenv
